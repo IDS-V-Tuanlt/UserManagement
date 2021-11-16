@@ -20,7 +20,7 @@
                         <div class="caption">
                             <h3>{{$product->sp_ten}}</h3>
                             <p>{{$product->sp_giaBan}}</p>
-                            <p><a href="#" class="btn btn-primary" role="button">Order</a> 
+                            <p><a href="{{ route('show.product', $product->sp_ma)}}" class="btn btn-primary" role="button">Choose</a> 
                               {{-- <a href="#" class="btn btn-default" role="button">Button</a> --}}
                             </p>
                         </div>
