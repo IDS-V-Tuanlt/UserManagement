@@ -27,6 +27,7 @@ Route::post('/search', 'UserController@search')->name('search.user');
 try{
     Route::get('/', 'ProductController@index');
     Route::get('/product/{id}', 'ProductController@show')->name('show.product');
+    Route::post('/product/order/{id}', 'ProductController@order')->name('order.product');
     // Đăng nhập
     Route::get('login','UserController@getLogin');
     Route::post('login','UserController@postLogin');

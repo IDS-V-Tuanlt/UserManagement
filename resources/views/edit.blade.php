@@ -1,18 +1,10 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta name="viewport" content="width=device-width">
-    <title>Laravel Repositories and Services</title>
-    <meta name="description" content="">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"
-        crossorigin="anonymous">
-</head>
-
-<body>
-    <div class="container">
-        <div class="col-md-8 col-md-offset-2">
+@extends ('layouts.master')
+@section('head.title')
+    Edit User
+@stop
+@section('body.content')
+    <div class="row justify-content-center">
+        <div class="col-8">
             <h4 class="page-header">Edit User </h4>
             @foreach ($errors->all() as $error)
                 <p class="alert alert-danger">{{ $error }}</p>
@@ -24,7 +16,8 @@
                     <input type="text" name="name" class="form-control" placeholder="Name" value="{{ $user->name }}">
                 </div>
                 <div class="form-group">
-                    <input type="text" name="email" readonly class="form-control" placeholder="Email" value="{{ $user->email }}">
+                    <input type="text" name="email" readonly class="form-control" placeholder="Email"
+                        value="{{ $user->email }}">
                 </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-info">Update User</button>
@@ -32,6 +25,4 @@
             </form>
         </div>
     </div>
-</body>
-
-</html>
+@stop
