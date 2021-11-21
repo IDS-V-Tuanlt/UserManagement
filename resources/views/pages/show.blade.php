@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form class="form-vertical" role="form" method="post" action="{{ route('order.product', $product->sp_ma) }}">
+            <form class="form-vertical" role="form" method="get" action="{{ route('order.product', $product->sp_ma) }}">
                 {{ csrf_field() }}
                 <h3 class="page-header">{{ $product->sp_ten }} </h3>
                 <p>{{ $product->sp_thongTin }}</p>

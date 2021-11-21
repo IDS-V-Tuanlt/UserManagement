@@ -10961,4 +10961,13 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
+/* My CSS */
+.remove-input {
+  border:0;
+  outline:0;
+  background-color: #f8fafc;
+  outline:none!important;
+}
+.t-a-c {
+  text-align: center;
+}

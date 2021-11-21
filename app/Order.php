@@ -11,7 +11,7 @@ class Order extends Model
     const UPDATED_AT    = 'dh_capNhat'; // updated_at
 
     protected $table        = 'order';
-    protected $fillable     = ['dh_thoiGianDatHang', 'dh_thoiGianNhanHang', 'dh_nguoiNhan', 'dh_diaChi', 'dh_dienThoai', 'dh_nguoiGui', 'dh_daThanhToan', 'dh_taoMoi', 'dh_capNhat', 'dh_trangThai'];
+    protected $fillable     = ['dh_thoiGianDatHang', 'dh_thoiGianNhanHang', 'dh_nguoiNhan', 'dh_diaChi', 'dh_dienThoai', 'dh_daThanhToan', 'dh_taoMoi', 'dh_capNhat', 'dh_trangThai'];
     protected $guarded      = ['dh_ma'];
 
     protected $primaryKey   = 'dh_ma';

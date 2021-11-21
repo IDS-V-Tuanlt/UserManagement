@@ -25,12 +25,12 @@ Route::group(['prefix' => 'user'], function(){
 
 Route::post('/search', 'UserController@search')->name('search.user');
 try{
-    Route::get('/', 'ProductController@index');
-    Route::get('/product/{id}', 'ProductController@show')->name('show.product');
-    Route::post('/product/order/{id}', 'ProductController@order')->name('order.product');
-    // Đăng nhập
-    Route::get('login','UserController@getLogin');
-    Route::post('login','UserController@postLogin');
+    Route::group(['prefix' => 'products'], function(){
+        Route::get('/', 'ProductController@index');
+        Route::get('/product/{id}', 'ProductController@show')->name('show.product');
+        Route::get('/product/order/{id}', 'ProductController@order')->name('order.product');
+    });
+    Route::post('/order/checkout', 'OrderController@checkout')->name('checkout');
 }  catch (Exception $e){
     abort(404);
 }
