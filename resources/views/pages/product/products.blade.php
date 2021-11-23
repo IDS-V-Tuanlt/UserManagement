@@ -1,8 +1,8 @@
-@extends ('layouts.master')
+@extends ('layouts.app')
 @section('head.title')
     Products List
 @stop
-@section('body.content')
+@section('content')
     <h2>Products List</h2>
     <div class="row justify-content-center">
         @foreach ($products as $product)

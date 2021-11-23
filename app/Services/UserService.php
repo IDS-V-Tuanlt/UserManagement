@@ -23,7 +23,6 @@ class UserService
     {
         $this->userRepository = $userRepository;
     }
-
     public function index()
     {
         return $this->userRepository->all();
@@ -52,7 +51,6 @@ class UserService
     }
     public function search(Request $request)
     {
-        // $choose = $request->all();
         if($request->get('name') && $request->get('email'))
         {
             return $this->userRepository->searchUser($request->all());
@@ -66,18 +64,5 @@ class UserService
                 return $this->userRepository->searchUserEmail($request->get('email'));
             }    
         }
-       
-        // switch ($choose) {
-        //     case "name":
-        //         return $this->userRepository->searchUserName($request->get('name'));
-        //        break;
-        //     case "email":
-        //         return $this->userRepository->searchUserEmail($keyword);
-        //         break;
-        //     default:
-        //         return $this->userRepository->searchUser($keyword);
-        //         break;
-        // }
-       
     }
 }

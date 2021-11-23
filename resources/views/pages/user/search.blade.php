@@ -1,8 +1,8 @@
-@extends ('layouts.master')
+@extends ('layouts.app')
 @section('head.title')
     Search Results
 @stop
-@section('body.content')
+@section('content')
     <div class="row justify-content-center">
         <div class="col-8">
             <h4 class="page-header">Search Results </h4>
