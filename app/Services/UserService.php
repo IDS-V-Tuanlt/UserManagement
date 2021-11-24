@@ -23,7 +23,7 @@ class UserService
     {
         $this->userRepository = $userRepository;
     }
-    public function index()
+    public function getAllUsers()
     {
         return $this->userRepository->all();
     }
@@ -35,7 +35,7 @@ class UserService
         $attributes['password'] = $password;
         return $this->userRepository->create($attributes);
     }
-    public function read($id)
+    public function getOneUser($id)
     {
         return $this->userRepository->find($id);
     }

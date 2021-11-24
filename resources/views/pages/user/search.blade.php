@@ -15,6 +15,7 @@
                         <th>Delete</th>
                     </tr>
                 </thead>
+                @if (!empty($users))
                 @foreach ($users as $user)
                     <tbody>
                         <tr>
@@ -38,6 +39,7 @@
                         </tr>
                     </tbody>
                 @endforeach
+                @endif
             </table>
         </div>
     </div>

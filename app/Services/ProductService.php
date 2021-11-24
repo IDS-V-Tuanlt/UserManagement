@@ -22,11 +22,11 @@ class ProductService
     {
         $this->productRepository = $productRepository;
     }
-    public function index()
+    public function getAllProducts()
     {
         return $this->productRepository->all();
     }
-    public function show($id)
+    public function getOneProduct($id)
     {
         return $this->productRepository->find($id);
     }

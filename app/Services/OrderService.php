@@ -26,7 +26,7 @@ class OrderService
     {
         return $this->orderRepository->product($id);
     }
-    public function price(Request $request, $price)
+    public function total(Request $request, $price)
     {
         $quantity = $request->get('quantity');
         return ($price)*($quantity);

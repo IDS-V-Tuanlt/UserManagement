@@ -6,6 +6,7 @@ use App\Product;
 
 class ProductRepository
 {
+    const number = 8;
     /**
      * @var Product
      */
@@ -22,7 +23,7 @@ class ProductRepository
     }
     public function all()
     {
-        return Product::paginate(8);
+        return Product::paginate(self::number);
     }
     public function find($id)
     {

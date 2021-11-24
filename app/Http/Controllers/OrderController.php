@@ -18,12 +18,17 @@ class OrderController extends Controller
     {
         $product = $this->orderservice->product($id);
         $quantity = $this->orderservice->quantity($request);
-        $price = $this->orderservice->price($request, $product->sp_giaBan);
+        $price = $this->orderservice->total($request, $product->sp_giaBan);
         return view('pages.product.checkout',  compact('product', 'quantity', 'price'));
     }
     public function checkout(Request $request)
     {
-        $this->orderservice->checkout($request);
-        return back()->with(['status'=>'Order Success']);
+        $success = $this->orderservice->checkout($request);
+        if($success){
+            return back()->with(['status'=>'Order Success']);
+        }else{
+            return back()->with(['status'=>'Order Failure']);
+        }
+        
     }
 }

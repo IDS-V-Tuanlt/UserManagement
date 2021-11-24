@@ -21,7 +21,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = $this->productservice->index();
+        $products = $this->productservice->getAllProducts();
         return view ('pages.product.products')->with(compact('products'));
     }
     /**
@@ -32,7 +32,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = $this->productservice->show($id);
+        $product = $this->productservice->getOneProduct($id);
         return view('pages.product.show', compact('product'));
     }
 }

@@ -32,7 +32,9 @@ class OrderRepository
     }
     public function insertData(Request $request)
     {
-        DB::transaction(function () use ($request) {
+        DB::beginTransaction();
+
+        try {
             $kh_ma = Customer::insertGetId([
                 'kh_hoTen' => $request->input('kh_hoTen'),
                 'kh_gioiTinh' => $request->input('kh_gioiTinh'),
@@ -53,6 +55,11 @@ class OrderRepository
                 'ctdh_soLuong'   => $request->input('ctdh_soLuong'),
                 'ctdh_donGia'   => $request->input('ctdh_donGia'),
             ]);
-        });
+            DB::commit();
+            return 1;
+        } catch (\Exception $e) {
+            DB::rollback();
+            return 0;
+        }
     }
 }

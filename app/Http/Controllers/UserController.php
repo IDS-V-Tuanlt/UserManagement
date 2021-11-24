@@ -18,7 +18,7 @@ class UserController extends Controller
     }
     public function index()
     {
-        $users = $this->userservice->index();
+        $users = $this->userservice->getAllUsers();
 
         return view('pages.user.index', compact('users'));
     }
@@ -37,7 +37,7 @@ class UserController extends Controller
     public function read($id)
     {
        
-       $user = $this->userservice->read($id);
+       $user = $this->userservice->getOneUser($id);
 
        return view('pages.user.edit', compact('user'));
 
