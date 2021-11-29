@@ -1,8 +1,8 @@
-@extends ('layouts.master')
+@extends ('layouts.app')
 @section('head.title')
     Product
 @stop
-@section('body.content')
+@section('content')
     <h2>Product Detail</h2>
     <div class="row">
         <div class="col-sm-6 col-md-4 col-md-offset-2">
@@ -11,7 +11,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form class="form-vertical" role="form" method="get" action="{{ route('order.product', $product->sp_ma) }}">
+            <form class="form-vertical" role="form" method="get" action="{{ route('order', $product->sp_ma) }}">
                 {{ csrf_field() }}
                 <h3 class="page-header">{{ $product->sp_ten }} </h3>
                 <p>{{ $product->sp_thongTin }}</p>

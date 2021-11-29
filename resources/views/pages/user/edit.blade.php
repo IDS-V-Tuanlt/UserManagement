@@ -1,8 +1,8 @@
-@extends ('layouts.master')
+@extends ('layouts.app')
 @section('head.title')
     Edit User
 @stop
-@section('body.content')
+@section('content')
     <div class="row justify-content-center">
         <div class="col-8">
             <h4 class="page-header">Edit User </h4>

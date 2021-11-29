@@ -28,9 +28,13 @@ try{
     Route::group(['prefix' => 'products'], function(){
         Route::get('/', 'ProductController@index');
         Route::get('/product/{id}', 'ProductController@show')->name('show.product');
-        Route::get('/product/order/{id}', 'ProductController@order')->name('order.product');
+        
     });
-    Route::post('/order/checkout', 'OrderController@checkout')->name('checkout');
+    Route::group(['prefix' => 'order'], function(){
+        Route::get('/{id}', 'OrderController@order')->name('order');
+        Route::post('/checkout', 'OrderController@checkout')->name('checkout');
+        
+    });
 }  catch (Exception $e){
     abort(404);
 }

@@ -4,9 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Product;
 use Illuminate\Http\Request;
+use App\Services\ProductService;
 
 class ProductController extends Controller
 {
+    protected $productservice;
+
+    public function __construct(ProductService $productservice)
+    {
+        $this->productservice = $productservice;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,9 +21,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-        $products = Product::paginate(8);
-        return view ('pages.products')->with(compact('products'));
+        $products = $this->productservice->getAllProducts();
+        return view ('pages.product.products')->with(compact('products'));
     }
     /**
      * Display the specified resource.
@@ -26,15 +32,7 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
-        $product = Product::find($id);
-        return view('pages.show', compact('product'));
-    }
-    public function order(Request $request, $id)
-    {
-        $product = Product::find($id);
-        $quantity = $request->get('quantity');
-        $price = ($product->sp_giaBan)*($quantity);
-        return view('pages.checkout',  compact('product', 'quantity', 'price'));
+        $product = $this->productservice->getOneProduct($id);
+        return view('pages.product.show', compact('product'));
     }
 }

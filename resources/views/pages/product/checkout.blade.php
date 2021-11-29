@@ -1,8 +1,8 @@
-@extends ('layouts.master')
+@extends ('layouts.app')
 @section('head.title')
     Checkout
 @stop
-@section('body.content')
+@section('content')
     <h2>Checkout</h2>
     @if (session('status'))
         <div class="alert alert-success alert-dismissable">
